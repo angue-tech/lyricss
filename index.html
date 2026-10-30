@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>For Liza</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=Playfair+Display:ital,wght@0,500;0,700;1,400;1,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="Style.css">
+</head>
+<body>
+<div class="app" id="app">
+  <div class="grid-bg"></div>
+  <div class="pink-bg"></div>
+  <canvas id="fx"></canvas>
+
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <clipPath id="heartClip"><path id="heartPath" d="M100 172 C 20 110, 2 70, 2 48 C 2 22, 22 4, 48 4 C 70 4, 90 16, 100 36 C 110 16, 130 4, 152 4 C 178 4, 198 22, 198 48 C 198 70, 180 110, 100 172 Z"/></clipPath>
+      <linearGradient id="g" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="200" y2="180"><stop offset="0" stop-color="#d8143f"/><stop offset="1" stop-color="#a80028"/></linearGradient>
+    </defs>
+  </svg>
+
+  <!-- 1 puzzle -->
+  <section class="scene on" id="s-puzzle" aria-label="Puzzle">
+    <div class="head">
+      <p class="sub">put us back together, babyy</p>
+    </div>
+    <div class="stage" id="stage">
+      <div class="board" id="board">
+        <svg class="slot" viewBox="0 0 200 180" aria-hidden="true">
+          <path d="M100 172 C 20 110, 2 70, 2 48 C 2 22, 22 4, 48 4 C 70 4, 90 16, 100 36 C 110 16, 130 4, 152 4 C 178 4, 198 22, 198 48 C 198 70, 180 110, 100 172 Z" fill="rgba(0,0,0,.025)" stroke="rgba(193,0,47,.22)" stroke-width="1.2" stroke-dasharray="4 4"/>
+          <path d="M100 4 V172 M2 88 H198" stroke="rgba(0,0,0,.08)" stroke-width="1" fill="none"/>
+        </svg>
+        <svg class="whole" viewBox="0 0 200 180" aria-hidden="true"><path d="M100 172 C 20 110, 2 70, 2 48 C 2 22, 22 4, 48 4 C 70 4, 90 16, 100 36 C 110 16, 130 4, 152 4 C 178 4, 198 22, 198 48 C 198 70, 180 110, 100 172 Z" fill="url(#g)"/></svg>
+      </div>
+    </div>
+    <div class="hint">drag each piece into place</div>
+  </section>
+
+
+  <section class="scene" id="s-reveal" aria-hidden="true">
+    <svg class="bigheart" viewBox="0 0 200 180"><path d="M100 172 C 20 110, 2 70, 2 48 C 2 22, 22 4, 48 4 C 70 4, 90 16, 100 36 C 110 16, 130 4, 152 4 C 178 4, 198 22, 198 48 C 198 70, 180 110, 100 172 Z" fill="url(#g)"/></svg>
+  </section>
+
+  <section class="scene" id="s-bloom" aria-hidden="true">
+    <div class="for" id="forText">this one is for you</div>
+    <div class="name" id="nameText">Liza</div>
+  </section>
+
+  <section class="scene" id="s-lines" aria-hidden="true"></section>
+
+  <section class="scene" id="s-photos" aria-hidden="true">
+    <div class="pol-stage" id="polStage"></div>
+  </section>
+
+  <section class="scene" id="s-end" aria-hidden="true">
+    <h2 class="end-big" id="endBig">I love you, baabyyy</h2>
+    <svg class="end-heart" viewBox="0 0 200 180"><path d="M100 172 C 20 110, 2 70, 2 48 C 2 22, 22 4, 48 4 C 70 4, 90 16, 100 36 C 110 16, 130 4, 152 4 C 178 4, 198 22, 198 48 C 198 70, 180 110, 100 172 Z" fill="url(#g)"/></svg>
+    <button class="replay" id="replay" type="button">play again</button>
+  </section>
+
+  <div id="parts"></div>
+
+  <button id="mute" type="button" aria-label="Toggle music" class="muted">
+    <svg class="on" viewBox="0 0 24 24" fill="currentColor"><path d="M9 18V6l10-2v12.2A3.5 3.5 0 1 1 17 13V7.1L11 8.3V18a3 3 0 1 1-2-2.83Z"/></svg>
+    <svg class="off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 18V6l10-2v6"/><circle cx="6.5" cy="18" r="2.5" fill="currentColor"/><path d="M3 3l18 18"/></svg>
+  </button>
+</div>
+
+<audio id="bgm" loop preload="auto" src="images/music.mp3"></audio>
+
+<script src="Script.js"></script>
+</body>
+</html>
